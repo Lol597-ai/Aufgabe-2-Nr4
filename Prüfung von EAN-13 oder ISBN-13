@@ -1,0 +1,26 @@
+
+code = input("Geben Sie einen EAN-13- oder ISBN-13-Code ein:")
+
+#falls User eine Zahl kleiner 13 angibt
+while len(code) != 13:
+ code =  input("Bitte gebe eine gültige EAN-13 Numerr an: ")
+
+#Convert Zahl to String
+ZahlInStr = str(code)
+
+# Summer für die Addition
+summe = 0
+
+# For-Schleife für die positionierung
+for i in range(len(code)):
+    digit = int(ZahlInStr[i])
+    if i % 2 == 0:
+        summe = summe + digit * 1
+    else:
+        summe = summe + digit * 3
+
+print(summe)
+if summe % 10 == 0:
+    print(f"Die Zahl {code} ist Gültig!")
+else:
+    print(f"Die Zahl {code} ist nicht Gültig!")
